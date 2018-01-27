@@ -1,11 +1,11 @@
-"set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible              " be iMproved, required
 syntax enable
 set t_Co=256
 set background=dark
 "================================================================
 "			Vundle Plugins
 "================================================================
+filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -25,12 +25,14 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+
+
 call vundle#end()            " required
 filetype plugin indent on    " required
-
 "================================================================
 "		     Airline Customization
 "================================================================
+colorscheme solarized
 let g:airline_powerline_fonts = 1
 let g:airline_theme='base16_ocean'
 
@@ -51,7 +53,6 @@ map <leader>g	:YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 syntax enable
 
-colorscheme solarized
 
 "Spaces and Tabs
 au BufNewFile,BufRead *.py

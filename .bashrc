@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm|xterm-color|*-256color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -57,20 +57,16 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    if [[ ${EUID} == 0 ]] ; then
-        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
-    else
-        PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w \$\[\033[00m\] '
-    fi
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h \w \$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h \w\a\]$PS1"
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     ;;
 *)
     ;;
@@ -119,17 +115,17 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+export DISPLAY=:0.0
 
-if [ -x /usr/bin/mint-fortune ]; then
-     /usr/bin/mint-fortune
+# Enable 256 colors
+[[ "$TERM" == "xterm" ]] && export TERM=xterm-256color
+
+if [ -t 1 ]; then
+  exec zsh
 fi
 
-# Configure shells to use vi keybindings
-set -o vi
-bind -m vi-insert "\C-1":clear-screen
+#export WORKON_HOME=$HOME/.virtualenvs             # Environments stored here
+#export PROJECT_HOME=/mnt/c/Users/mio84/Code              # Path to your Python projects
+#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python         # Make Python3 the default
+#source /usr/local/bin/virtualenvwrapper.sh
 
-# Custom prompt
-# Also display git branch name
-PS1="\[\033[1;34m\][\u@\h\[\033[37m\]:\[\033[0;96m\]\j.\#] \[\033[1;96m\]\w \[\033[0;94m\]\$(git branch 2>/dev/null | grep '^*' | colrm 1 2) \[\033[1;36m\]\$\[\033[00m\] "
-
-alias config='/usr/bin/git --git-dir=/home/vi/.myconf/ --work-tree=/home/vi

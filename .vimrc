@@ -3,10 +3,10 @@ syntax enable
 set t_Co=256
 set background=dark
 "================================================================
-"			Vundle Plugins
+""			Vundle Plugins
 "================================================================
-filetype off                  " required
-" set the runtime path to include Vundle and initialize
+"filetype off                  " required
+"" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
@@ -43,7 +43,7 @@ import sys
 if 'VIRTUAL_ENV' in os.environ:
   project_base_dir = os.environ['VIRTUAL_ENV']
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  exec(compile(open(activate_this, "rb").read(), activate_this, 'exec'), dict(__file__=activate_this))
+  exec(compile(open(activate_this, "rb").read(), activate_this, 'exec'),dict(__file__=activate_this))
 EOF
 
 "Autocomplete window go away
@@ -52,8 +52,6 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g	:YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 syntax enable
-
-
 "Spaces and Tabs
 au BufNewFile,BufRead *.py
     \ set tabstop=4		"number of visual spaces per TAB
@@ -64,11 +62,9 @@ au BufNewFile,BufRead *.py
     \ set textwidth=79
     \ set fileformat=unix
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-set splitbelow
+set splitbelow 
 set splitright
-	
-"always show status line
+
 set laststatus=2
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -84,7 +80,7 @@ set encoding=utf-8
 
 "UI Config
 set number              "show line numbers 
-set showcmd             "show command in bottom bar
+set showcmd             "show commandin bottom bar
 set cursorline          "highlight current line
 set wildmenu            "visual autocomplete for command menu
 set lazyredraw          "redraw only when we need to
@@ -100,4 +96,4 @@ set foldmethod=indent   "fold based on indent level
 
 "Leader Shortcuts
 let mapleader=","       "leader is comma
-inoremap jk <esc>       
+inoremap jk <esc> 

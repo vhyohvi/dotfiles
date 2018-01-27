@@ -14,6 +14,7 @@
     ~/.gitconfig: ~/repos/.dotfiles/.gitconfig  
     ~/.inputrc: ~/repos/.dotfiles/.inputrc
     ~/.profile: ~/repos/.dotfiles/.profile
+    ~/.vim: ~/repos/.dotfiles/.vim
 
 
 - shell:

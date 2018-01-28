@@ -11,13 +11,15 @@ if [ -t 1 ]; then
 fi 
 if [ "$TMUX" = "" ]; then tmux; fi
 
+# Exercism completion
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
+	  . ~/.config/exercism/exercism_completion.zsh
+  fi
+
+
 export ZSH=/home/vi/.oh-my-zsh
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
-
-if [[ -f /.local/lib/python3.6/site-packages/powerline/bindings/tmux/powerline.conf ]]; then
-	    tmux source "/.local/lib/python3.6/site-packages/powerline/bindings/tmux/powerline.conf"
-    fi
  
 bindkey -v
 # ===========================**POWERLEVEL9K CONFIG**===========================
@@ -58,8 +60,6 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="$DEFAULT_FOREGROUND"
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="$DEFAULT_BACKGROUND"
 # =============================================================================
-.  ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
-
 
 # Python Virtual Environments
 export WORKON_HOME=$HOME/.virtualenvs             	# Environments stored here

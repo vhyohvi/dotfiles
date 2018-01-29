@@ -1,5 +1,5 @@
-path+=(~/.local/lib/python3.6/)
-PATH=$HOME/.local/bin:$PATH 
+path+=(~/.local/lib/python3.6/)		#to add path to wsl paths
+PATH=$HOME/.local/bin:$PATH 		#for powerline to work
 # =============================================================================
 #                                   Variables
 # =============================================================================
@@ -22,6 +22,9 @@ export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
  
 bindkey -v
+
+powerline-daemon -q
+. ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 # ===========================**POWERLEVEL9K CONFIG**===========================
 POWERLEVEL9K_MODE='awesome-fontconfig'
 ZSH_THEME="powerlevel9k/powerlevel9k"

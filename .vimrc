@@ -3,14 +3,13 @@ syntax enable
 set t_Co=256
 set background=dark
 "================================================================
-""			Vundle Plugins
+"			Vundle Plugins
 "================================================================
-"filetype off                  " required
+filetype off                  " required
 "" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
+
 " Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 Plugin 'VundleVim/Vundle.vim'
@@ -24,8 +23,6 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
-
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -61,7 +58,7 @@ au BufNewFile,BufRead *.py
     \ set shiftwidth=4
     \ set textwidth=79
     \ set fileformat=unix
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
 set splitbelow 
 set splitright
 

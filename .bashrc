@@ -115,6 +115,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+if [ -f ~/.config/exercism/exercism_completion.bash ]; then
+    . ~/.config/exercism/exercism_completion.bash
+fi
 export DISPLAY=:0.0
 
 # Enable 256 colors
@@ -129,3 +132,7 @@ fi
 #export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python         # Make Python3 the default
 #source /usr/local/bin/virtualenvwrapper.sh
 
+
+# added by Miniconda3 installer
+export PATH="/home/vi/miniconda3/bin:$PATH"
+export PATH=$HOME/.local/bin:$PATH

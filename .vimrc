@@ -2,6 +2,7 @@ set nocompatible              " be iMproved, required
 syntax enable
 set t_Co=256
 set background=dark
+set noshowmode
 "================================================================
 "			Vundle Plugins
 "================================================================

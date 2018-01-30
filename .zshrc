@@ -1,5 +1,6 @@
 path+=(~/.local/lib/python3.6/)		#to add path to wsl paths
 PATH=$HOME/.local/bin:$PATH 		#for powerline to work
+export PATH="/home/vi/miniconda3/bin:$PATH"
 # =============================================================================
 #                                   Variables
 # =============================================================================
@@ -74,6 +75,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 source $ZSH/oh-my-zsh.sh
 alias python='python3.6'
 alias pip='pip3'
+alias win='/mnt/c/Users/mio84/'
 # =============================================================================
 #                                   Plugins
 # =============================================================================

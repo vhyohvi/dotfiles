@@ -75,7 +75,10 @@ source /usr/local/bin/virtualenvwrapper.sh
 source $ZSH/oh-my-zsh.sh
 alias python='python3.6'
 alias pip='pip3'
-alias win='/mnt/c/Users/mio84/'
+alias win='/mnt/c/Users/mio84/Projects/'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
 # =============================================================================
 #                                   Plugins
 # =============================================================================

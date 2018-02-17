@@ -79,6 +79,7 @@ alias win='/mnt/c/Users/mio84/Projects/'
 alias ga='git add'
 alias gc='git commit'
 alias gp='git push'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # =============================================================================
 #                                   Plugins
 # =============================================================================

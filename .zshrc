@@ -1,6 +1,10 @@
-path+=(~/.local/lib/python3.6/)		#to add path to wsl paths
-PATH=$HOME/.local/bin:$PATH 		#for powerline to work
+path+=('/usr/local/Cellar/python3/3.6.4_2/bin')
+# PATH="/usr/local/share/python:$PATH" 		#for powerline to work
 export PATH="/home/vi/miniconda3/bin:$PATH"
+export PATH=/usr/local/bin:$PATH
+source ~/.fonts/*.sh
+source ~/powerlevel9k/powerlevel9k.zsh-theme
+source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # =============================================================================
 #                                   Variables
 # =============================================================================
@@ -10,7 +14,7 @@ fi
 if [ -t 1 ]; then
   cd ~
 fi 
-if [ "$TMUX" = "" ]; then tmux; fi
+#if [ "$TMUX" = "" ]; then tmux; fi
 
 # Exercism completion
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
@@ -18,16 +22,14 @@ if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
   fi
 
 
-export ZSH=/home/vi/.oh-my-zsh
+export ZSH=/Users/vi/.oh-my-zsh
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
  
 bindkey -v
 
-powerline-daemon -q
-. ~/.local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 # ===========================**POWERLEVEL9K CONFIG**===========================
-POWERLEVEL9K_MODE='awesome-fontconfig'
+POWERLEVEL9K_MODE='nerdfont-complete'
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # tmux settings
@@ -36,13 +38,13 @@ ZSH_TMUX_AUTOSTART='true'
 POWERLEVEL9K_ALWAYS_SHOW_CONTEXT=true
 POWERLEVEL9K_ALWAYS_SHOW_USER=false
 
-POWERLEVEL9K_CONTEXT_TEMPLATE=$'\uF109 %m'
+# POWERLEVEL9K_CONTEXT_TEMPLATE=$'\uF109 %m'
 
 DEFAULT_FOREGROUND=006 DEFAULT_BACKGROUND=235
 DEFAULT_COLOR=$DEFAULT_FOREGROUND
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context_joined dir newline vcs)
-# POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_DISABLE_RPROMPT=true
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs status time ssh)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
@@ -67,9 +69,8 @@ POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="$DEFAULT_BACKGROUND"
 
 # Python Virtual Environments
 export WORKON_HOME=$HOME/.virtualenvs             	# Environments stored here
-export PROJECT_HOME=/mnt/c/Users/mio84/Code             # Path to your Python projects
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.6      # Make Python3 the default
-source /usr/local/bin/virtualenvwrapper.sh
+#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.6      # Make Python3 the default
+#source /usr/local/bin/virtualenvwrapper.sh
 
 # keep at bottom
 source $ZSH/oh-my-zsh.sh
@@ -87,4 +88,6 @@ plugins=(
   git 
   vi-mode
   zsh-dircolors-solarized
+  colorize
+  bundler
 )

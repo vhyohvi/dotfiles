@@ -30,7 +30,7 @@ filetype plugin indent on    " required
 "================================================================
 "		     Airline Customization
 "================================================================
-colorscheme solarized
+" colorscheme solarized
 let g:airline_powerline_fonts = 1
 let g:airline_theme='base16_ocean'
 

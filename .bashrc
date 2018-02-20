@@ -124,6 +124,4 @@ fi
 #export PROJECT_HOME=/mnt/c/Users/mio84/Code              # Path to your Python projects
 #export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python         # Make Python3 the default
 #source /usr/local/bin/virtualenvwrapper.sh
-# added by Miniconda3 installer
-export PATH="/home/vi/miniconda3/bin:$PATH"
 export PATH=$HOME/.local/bin:$PATH

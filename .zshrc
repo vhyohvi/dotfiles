@@ -1,10 +1,15 @@
-path+=('/usr/local/Cellar/python3/3.6.4_2/bin')
+export ZSH=/Users/vi/.oh-my-zsh
+export TERM=xterm-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
+
 # PATH="/usr/local/share/python:$PATH" 		#for powerline to work
-export PATH="/home/vi/miniconda3/bin:$PATH"
 export PATH=/usr/local/bin:$PATH
-source ~/.fonts/*.sh
-source ~/powerlevel9k/powerlevel9k.zsh-theme
-source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH=/usr/local/anaconda3/bin:$PATH
+export PATH=/anaconda3/bin:$PATH
+path+=('/usr/local/Cellar/python3/3.6.4_2/bin')
+# source ~/.fonts/*.sh
+# source ~/powerlevel9k/powerlevel9k.zsh-theme
+# source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # =============================================================================
 #                                   Variables
 # =============================================================================
@@ -14,7 +19,7 @@ fi
 if [ -t 1 ]; then
   cd ~
 fi 
-#if [ "$TMUX" = "" ]; then tmux; fi
+if [ "$TMUX" = "" ]; then tmux; fi
 
 # Exercism completion
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
@@ -22,9 +27,6 @@ if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
   fi
 
 
-export ZSH=/Users/vi/.oh-my-zsh
-export TERM=xterm-256color
-[ -n "$TMUX" ] && export TERM=screen-256color
  
 bindkey -v
 
@@ -38,7 +40,7 @@ ZSH_TMUX_AUTOSTART='true'
 POWERLEVEL9K_ALWAYS_SHOW_CONTEXT=true
 POWERLEVEL9K_ALWAYS_SHOW_USER=false
 
-# POWERLEVEL9K_CONTEXT_TEMPLATE=$'\uF109 %m'
+ POWERLEVEL9K_CONTEXT_TEMPLATE=$'\uF109 %m'
 
 DEFAULT_FOREGROUND=006 DEFAULT_BACKGROUND=235
 DEFAULT_COLOR=$DEFAULT_FOREGROUND

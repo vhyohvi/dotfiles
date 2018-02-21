@@ -23,9 +23,9 @@ export PATH="Users/vi/Library/Python/3.6/bin:$PATH"
 # source ~/.fonts/*.sh
 # source ~/powerlevel9k/powerlevel9k.zsh-theme
 # source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# =============================================================================
-#                                   Variables
-# =============================================================================
+#================================================================================================
+#	                                   Variables
+#================================================================================================
 if [ -f ~/.dir_colors ]; then  
   eval `dircolors ~/.dir_colors`
 fi  
@@ -43,7 +43,7 @@ fi
  
 bindkey -v
 
-# ===========================**POWERLEVEL9K CONFIG**===========================
+# ====================================**POWERLEVEL9K CONFIG**====================================
 POWERLEVEL9K_MODE='nerdfont-complete'
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
@@ -80,7 +80,7 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="$DEFAULT_FOREGROUND"
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="$DEFAULT_BACKGROUND"
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="$DEFAULT_FOREGROUND"
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="$DEFAULT_BACKGROUND"
-# =============================================================================
+#================================================================================================
 
 # Python Virtual Environments
 export WORKON_HOME=$HOME/.virtualenvs             	# Environments stored here
@@ -95,9 +95,9 @@ alias ga='git add'
 alias gc='git commit'
 alias gp='git push'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-# =============================================================================
-#                                   Plugins
-# =============================================================================
+#================================================================================================
+#	                                   Plugins
+#================================================================================================
 plugins=(
   git 
   vi-mode

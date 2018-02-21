@@ -3,15 +3,13 @@ syntax enable
 set t_Co=256
 set background=dark
 set noshowmode
-"================================================================
-"			Vundle Plugins
-"================================================================
-filetype off                  " required
-"" set the runtime path to include Vundle and initialize
+
+"===============================================================================================
+"		                	Vundle Plugins
+"===============================================================================================
+filetype off                  
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-" Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
@@ -22,17 +20,23 @@ Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
-"================================================================
-"		     Airline Customization
-"================================================================
+call vundle#end()            
+filetype plugin indent on    
+"===============================================================================================
+
+
+" Powerline setup
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
+" Airline config
 " colorscheme solarized
-let g:airline_powerline_fonts = 1
-let g:airline_theme='base16_ocean'
+" let g:airline_powerline_fonts = 1
+" let g:airline_theme='base16_ocean'
 
 "Virtualenv support
 py3 << EOF

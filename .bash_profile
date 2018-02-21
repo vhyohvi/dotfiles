@@ -14,3 +14,7 @@ export PATH="/anaconda3/bin:$PATH"
 
 # added by Anaconda3 5.1.0 installer
 export PATH="/Users/vi/anaconda3/bin:$PATH"
+
+# add powerline command
+export POWERLINE_CONFIG_COMMAND="/Users/vi/Library/Python/3.6/bin"
+export PATH="Users/vi/Library/Python/3.6/bin:$PATH"

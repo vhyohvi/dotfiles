@@ -1,12 +1,25 @@
 export ZSH=/Users/vi/.oh-my-zsh
 export TERM=xterm-256color
 [ -n "$TMUX" ] && export TERM=screen-256color
-
-# PATH="/usr/local/share/python:$PATH" 		#for powerline to work
+#if [ -d "$HOME/Library/Python/3.6/bin" ]; then
+ # PATH="$HOME/Library/Python/3.6/bin:$PATH"
+#fi
+if [ -d "/usr/local/lib" ]; then
+  PATH="/usr/local/lib:$PATH"
+fi
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/anaconda3/bin:$PATH
 export PATH=/anaconda3/bin:$PATH
 path+=('/usr/local/Cellar/python3/3.6.4_2/bin')
+PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+# added by Anaconda3 5.1.0 installer
+export PATH="/anaconda3/bin:$PATH"
+# added by Anaconda3 5.1.0 installer
+export PATH="/Users/vi/anaconda3/bin:$PATH"
+# add powerline command
+export POWERLINE_CONFIG_COMMAND="/usr/local/lib/python3.6/site-packages/powerline/commands"
+export PATH="/usr/local/lib:$PATH"
+export PATH="Users/vi/Library/Python/3.6/bin:$PATH"
 # source ~/.fonts/*.sh
 # source ~/powerlevel9k/powerlevel9k.zsh-theme
 # source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -23,8 +36,8 @@ if [ "$TMUX" = "" ]; then tmux; fi
 
 # Exercism completion
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
-	  . ~/.config/exercism/exercism_completion.zsh
-  fi
+  . ~/.config/exercism/exercism_completion.zsh
+fi
 
 
  
@@ -40,7 +53,7 @@ ZSH_TMUX_AUTOSTART='true'
 POWERLEVEL9K_ALWAYS_SHOW_CONTEXT=true
 POWERLEVEL9K_ALWAYS_SHOW_USER=false
 
- POWERLEVEL9K_CONTEXT_TEMPLATE=$'\uF109 %m'
+POWERLEVEL9K_CONTEXT_TEMPLATE=$'\uF109 %m'
 
 DEFAULT_FOREGROUND=006 DEFAULT_BACKGROUND=235
 DEFAULT_COLOR=$DEFAULT_FOREGROUND
@@ -78,7 +91,6 @@ export WORKON_HOME=$HOME/.virtualenvs             	# Environments stored here
 source $ZSH/oh-my-zsh.sh
 alias python='python3.6'
 alias pip='pip3'
-alias win='/mnt/c/Users/mio84/Projects/'
 alias ga='git add'
 alias gc='git commit'
 alias gp='git push'

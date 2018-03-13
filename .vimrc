@@ -15,7 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'mbbill/undotree'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'vim-syntastic/syntastic'
+" Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
 Plugin 'flazz/vim-colorschemes'
@@ -29,9 +29,14 @@ filetype plugin indent on
 
 
 " Powerline setup
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
+" python3 from powerline.vim import setup as powerline_setup
+" python3 powerline_setup()
+" python3 del powerline_setup
+
+" flake8 config
+let g:flake8_show_quickfix=1
+let g:flake8_show_in_gutter=1
+let g:flake8_show_in_file=1
 
 " Airline config
 " colorscheme solarized
@@ -63,6 +68,7 @@ au BufNewFile,BufRead *.py
     \ set shiftwidth=4
     \ set textwidth=79
     \ set fileformat=unix
+autocmd BufWritePost *.py call Flake8()
 
 set splitbelow 
 set splitright

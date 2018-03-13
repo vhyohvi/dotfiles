@@ -38,11 +38,10 @@ if [ "$TMUX" = "" ]; then tmux; fi
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
   . ~/.config/exercism/exercism_completion.zsh
 fi
-
-
- 
 bindkey -v
-
+# powerline-daemon -q
+# powerline-config tmux setup
+# . /usr/local/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 # ====================================**POWERLEVEL9K CONFIG**====================================
 POWERLEVEL9K_MODE='nerdfont-complete'
 ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -51,16 +50,16 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_TMUX_AUTOSTART='true'
 
 POWERLEVEL9K_ALWAYS_SHOW_CONTEXT=true
-POWERLEVEL9K_ALWAYS_SHOW_USER=false
+# POWERLEVEL9K_ALWAYS_SHOW_USER=false
 
 POWERLEVEL9K_CONTEXT_TEMPLATE=$'\uF109 %m'
 
 DEFAULT_FOREGROUND=006 DEFAULT_BACKGROUND=235
 DEFAULT_COLOR=$DEFAULT_FOREGROUND
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context_joined dir newline vcs)
-POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs status time ssh)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context_joined dir newline vcs )
+# POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs status time ssh anaconda)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 # POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
@@ -95,6 +94,10 @@ alias ga='git add'
 alias gc='git commit'
 alias gp='git push'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias profile-config='/Applications/Firefox.app/Contents/MacOS/firefox-bin -P'
+alias profile='cd Library/Application\ Support/Firefox/Profiles'
+alias sshd='ssh -D 8080'
+
 #================================================================================================
 #	                                   Plugins
 #================================================================================================

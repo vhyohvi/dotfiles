@@ -1,14 +1,19 @@
+set nocompatible              " be iMproved, required
+syntax enable
+set t_Co=256
+set background=dark
+set noshowmode
+
 "Leader Shortcuts
 let mapleader = ","       
 let g:mapleader = ","
 let maplocalleader = ","
 inoremap jk <esc> 
-"Invisible character colors 
 "
 set splitbelow 
 set splitright
-
 set laststatus=2
+
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -25,6 +30,7 @@ set encoding=utf-8
 
 "UI Config
 set number              "show line numbers 
+set relativenumber
 set numberwidth=2
 set showcmd             "show commandin bottom bar
 set cursorline          "highlight current line
@@ -39,12 +45,6 @@ set foldlevelstart=10   "open most folds by default
 set foldnestmax=10      "10 nested fold max
 nnoremap <space> za
 set foldmethod=indent   "fold based on indent level
-
-set nocompatible              " be iMproved, required
-syntax enable
-set t_Co=256
-set background=dark
-set noshowmode
 
 " Numbers are grey
 hi LineNr ctermfg=244
@@ -80,11 +80,34 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
-" Powerline setup
-" python3 from powerline.vim import setup as powerline_setup
-" python3 powerline_setup()
-" python3 del powerline_setup
+function! Preserve(command)
+	" Save the last search.
+	let search = @/
+	Save the current cursor position.
+	let cursor_position = getpos('.')
+	" Save the current window position.
+	normal! H
+	let window_position = getpos('.')
+	call setpos('.', cursor_position)
+	" Execute the command.
+	execute a:command
+	" Restore the last search.
+	let @/ = search
+	" Restore the previous window position.
+	call setpos('.', window_position)
+	normal! zt
+	" Restore the previous cursor position.
+	call setpos('.', cursor_position)
+endfunction
+
+function! Autopep8()
+	call Preserve(':silent %!autopep8 -')
+endfunction
+
+" Shift + F で自動修正
+autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
 
 " Airline config
 let g:airline_powerline_fonts = 1
@@ -111,4 +134,3 @@ au BufNewFile,BufRead *.py
     \ set textwidth=79
     \ set fileformat=unix
 autocmd BufWritePost *.py call Flake8()
-

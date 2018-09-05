@@ -18,3 +18,12 @@ export PATH="/Users/vi/anaconda3/bin:$PATH"
 # add powerline command
 export POWERLINE_CONFIG_COMMAND="/Users/vi/Library/Python/3.6/bin"
 export PATH="Users/vi/Library/Python/3.6/bin:$PATH"
+
+export PATH="/usr/local/bin:$PATH"
+
+# Setting PATH for Python 3.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.7/bin:${PATH}"
+export PATH
+
+export PATH="$HOME/.cargo/bin:$PATH"

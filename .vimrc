@@ -5,11 +5,11 @@ set background=dark
 set noshowmode
 
 "Leader Shortcuts
-let mapleader = ","       
-let g:mapleader = ","
-let maplocalleader = ","
+let mapleader=","
+let g:mapleader=","
+let maplocalleader=","
 inoremap jk <esc> 
-"
+
 set splitbelow 
 set splitright
 set laststatus=2
@@ -60,10 +60,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'mbbill/undotree'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'vim-syntastic/syntastic'
+"Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -80,7 +80,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+let g:syntastic_python_checkers = ['flake8']
 
 function! Preserve(command)
 	" Save the last search.
@@ -103,7 +103,7 @@ function! Preserve(command)
 endfunction
 
 function! Autopep8()
-	call Preserve(':silent %!autopep8 -')
+	call Preserve(':silent %!autopep8 --ignore=E501 -')
 endfunction
 
 " Shift + F で自動修正
@@ -133,4 +133,5 @@ au BufNewFile,BufRead *.py
     \ set shiftwidth=4
     \ set textwidth=79
     \ set fileformat=unix
-autocmd BufWritePost *.py call Flake8()
+"autocmd BufWritePost *.py call Flake8()
+autocmd BufRead,BufNewFile *.py let python_highlight_all=1

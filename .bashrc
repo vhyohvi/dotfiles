@@ -102,6 +102,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias firefox-profile='/Applications/Firefox.app/Contents/MacOS/firefox-bin -P'
+alias mvim='mvim -v'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -126,3 +127,4 @@ fi
 #export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python         # Make Python3 the default
 #source /usr/local/bin/virtualenvwrapper.sh
 export PATH=$HOME/.local/bin:$PATH
+export PATH=/usr/local/bin:$PATH

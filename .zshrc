@@ -30,22 +30,19 @@ export WORKON_HOME=$HOME/.virtualenvs             	# Environments stored here
 
 # keep at bottom
 source $ZSH/oh-my-zsh.sh
-alias python='python3.6'
+alias python='python3'
 alias pip='pip3'
 alias ga='git add .'
 alias gc='git commit'
 alias commit='git add . && git commit'
 alias gp='git push'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias firefox-profile-config='/Applications/Firefox.app/Contents/MacOS/firefox-bin -P'
-alias firefox-profile='cd Library/Application\ Support/Firefox/Profiles'
 alias sshd='ssh -D 8080'
 alias mvim='mvim -v'
-alias mapit='python mapit.py'
 alias update='sudo softwareupdate --install --all'
 
 # bug with python3.7 support for system vim
-alias vim='/usr/local/Cellar/macvim/8.1-151/MacVim.app/Contents/MacOS/Vim'
+alias vim='/usr/local/Cellar/macvim/8.1-153/MacVim.app/Contents/MacOS/Vim'
 
 #================================================================================================
 #	                                   Plugins

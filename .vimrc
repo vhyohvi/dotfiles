@@ -60,7 +60,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'mbbill/undotree'
 Plugin 'vim-scripts/indentpython.vim'
-"Plugin 'vim-syntastic/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'flazz/vim-colorschemes'
 "Plugin 'christoomey/vim-tmux-navigator'
@@ -111,7 +111,7 @@ autocmd FileType python nnoremap <S-f> :call Autopep8()<CR>
 
 " Airline config
 let g:airline_powerline_fonts = 1
-let g:airline_theme='base16'
+let g:airline_theme='minimalist'
 
 "Virtualenv support
 py3 << EOF

@@ -1,44 +1,27 @@
-<<<<<<< HEAD
 export ZSH=/Users/vi/.oh-my-zsh
 export TERM=screen-256color
 export GOPATH="$HOME"
-export PATH="$GOPATH/bin:$PATH"
-export PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
+
+path=(
+    $path
+    $GOPATH/bin
+    /bin
+    /usr/local/bin
+    /sbin
+    /usr/bin
+    /usr/local/sbin
+    /.local/bin
+    /usr/local/opt/python@2/libexec/bin
+    /usr/local/opt/gettext/bin
+    /usr/local/mysql/bin
+    /Applications/Postgres.app/Contents/Versions/latest/bin
+    ~/.cargo/bin
+)
+
 if [ -d "/usr/local/lib" ]; then
-  PATH="/usr/local/lib:$PATH"
+    path+=/usr/local/lib
 fi
 
-
-export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-export PATH="/usr/local/opt/python@2/libexec/bin:$PATH"
-export PATH="/usr/local/opt/gettext/bin/:$PATH"
-export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
-export PATH="/usr/local/mysql/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-
-=======
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=1000
-bindkey -v
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/Users/vi/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-#
-#
-path+=(~/.local/lib/python3.6/)		#to add path to wsl paths
-PATH=$HOME/.local/bin:$PATH 		#for powerline to work
-export PATH="/home/vi/miniconda3/bin:$PATH"
-# =============================================================================
-#                                   Variables
-# =============================================================================
->>>>>>> 988b5bc1cb0e24e0fbfcb36ab4c0e9d45a27772e
 if [ -f ~/.dir_colors ]; then  
   eval `dircolors ~/.dir_colors`
 fi  
@@ -55,7 +38,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 ZSH_THEME="mortalscumbag"
 
-# keep at bottom
 source $ZSH/oh-my-zsh.sh
 alias python='python3'
 alias pip='pip3'

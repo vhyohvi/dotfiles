@@ -1,10 +1,10 @@
 # This is Git's per-user configuration file.
 [User]
+	name = vimiomori
 # Please adapt and uncomment the following lines:
 #	name = "vhyohvi"
 #	email = vivianhsieh@outlook.com 
 [user]
-	name = vimiomori
 	email = vivian.muchen@gmail.com
 [push]
 	default = simple
@@ -13,3 +13,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[ghq]
+	root = /Users/vi/src

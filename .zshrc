@@ -1,5 +1,6 @@
+export LC_ALL=en_US.UTF-8
 export ZSH=/Users/vi/.oh-my-zsh
-export TERM=screen-256color
+# export TERM=screen-256color
 export GOPATH="$HOME"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="/usr/local/bin:/bin:/sbin:/usr/bin:/usr/local/sbin:$PATH"
@@ -40,13 +41,13 @@ alias ga='git add .'
 alias gc='git commit'
 alias commit='git add . && git commit'
 alias gp='git push'
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias update='git submodule update --remote'
 alias sshd='ssh -D 8080'
 alias mvim='mvim -v'
 alias update='sudo softwareupdate --install --all'
 alias db-setup='docker-compose exec jupiter-web bundle exec rake db:setup'
 alias db-migrate='docker-compose exec jupiter-web bundle exec rake db:migrate'
-alias db-dump='cd ~/Dev/Zeals/earth && docker-compose exec fanp-db mysqldump -uroot --databases fanp fanp_test > fanp-db/99-dump.sql'
+alias db-dump='docker-compose exec fanp-db mysqldump -uroot --databases fanp fanp_test > fanp-db/99-dump.sql'
 alias up='docker-compose up'
 alias stop='docker-compose rm --stop --force'
 alias rm-untagged="docker images --no-trunc | grep '<none>' | awk '{ print $3 }' \
@@ -60,12 +61,16 @@ alias messenger-invoke='docker-compose run --rm saturn-messenger invoke'
 alias tree='tree -I "*pycache*" --dirsfirst'
 alias stg='kubectl config use-context gke_fanp-stg_asia-northeast1_fanp'
 alias prd='kubectl config use-context gke_fanp-prd_asia-northeast1_fanp'
+alias sandbox='kubectl config use-context gke_zeals-sandbox_asia-northeast1_debug-fanp'
 alias invoke='docker-compose run --rm saturn-messenger invoke'
 alias gget="ghq get"
 
+# for managing dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
 
 # bug with python3.7 support for system vim
-alias vim='/usr/local/Cellar/macvim/8.1-153/MacVim.app/Contents/MacOS/Vim'
+# alias vim='/usr/local/Cellar/macvim/8.1-153/MacVim.app/Contents/MacOS/Vim'
 alias dog='cd ~/KDS'
 alias dog-back='cd ~/KDS/esports-platform-backend'
 alias dog-front='cd ~/KDS/esports-platform-frontend'
@@ -107,3 +112,9 @@ function peco-src () {
 }
 zle -N peco-src
 bindkey 'gd' peco-src
+
+function peco-git-checkout {
+    git branch | peco | xargs git checkout
+}
+zle -N peco-git-checkout
+bindkey '^o' peco-git-checkout

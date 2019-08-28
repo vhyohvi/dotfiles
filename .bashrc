@@ -36,9 +36,9 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
+# case "$TERM" in
+#    xterm-color|*-256color) color_prompt=yes;;
+# esac
 
 
 if [ -n "$force_color_prompt" ]; then
@@ -119,7 +119,7 @@ if [ -f ~/.config/exercism/exercism_completion.bash ]; then
 fi
 
 # Enable 256 colors
-[[ "$TERM" == "xterm" ]] && export TERM=xterm-256color
+# [[ "$TERM" == "xterm" ]] && export TERM=xterm-256color
 
 
 #export WORKON_HOME=$HOME/.virtualenvs             # Environments stored here

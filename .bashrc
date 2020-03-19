@@ -40,7 +40,6 @@ fi
 #    xterm-color|*-256color) color_prompt=yes;;
 # esac
 
-
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	# We have color support; assume it's compliant with Ecma-48
@@ -68,10 +67,8 @@ xterm*|rxvt*)
     ;;
 esac
 
-
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -121,7 +118,6 @@ fi
 # Enable 256 colors
 # [[ "$TERM" == "xterm" ]] && export TERM=xterm-256color
 
-
 #export WORKON_HOME=$HOME/.virtualenvs             # Environments stored here
 #export PROJECT_HOME=/mnt/c/Users/mio84/Code              # Path to your Python projects
 #export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python         # Make Python3 the default
@@ -132,3 +128,10 @@ export PATH=/usr/local/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

@@ -1,10 +1,11 @@
 export LC_ALL=en_US.UTF-8
 export ZSH=/Users/vi/.oh-my-zsh
 # export TERM=screen-256color
-export GOPATH="$HOME"
+# export GOPATH="$HOME/bin"
 path=(
     $path
-		$GOPATH/bin
+#		$GOPATH/bin
+		/usr/local/go/bin
 		/bin
 		/sbin
 		/usr/bin
@@ -32,6 +33,8 @@ fi
 if [ -t 1 ]; then
   cd ~
 fi 
+
+export GO111MODULE=on
 
 # Python Virtual Environments
 export WORKON_HOME=$HOME/.virtualenvs             	# Environments stored here
@@ -90,6 +93,9 @@ alias dog-front='cd ~/KDS/esports-platform-frontend'
 alias kds='~/KDS/esports-platform-backend/node_modules/.bin/sequelize'
 alias kds-migrate='cd ~/KDS/esports-platform-backend && node_modules/.bin/sequelize db:migrate'
 alias check-port='lsof -i -P -n | grep LISTEN'
+alias kill-rails='kill -9 $(cat tmp/pids/server.pid)'
+alias prune-branches='git fetch --prune && git branch -r | awk "{print \$1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print \$1}" | xargs git branch -D'
+alias start-db='pg_ctl -D /usr/local/pgsql/data -l logfile start'
 
 #================================================================================================
 #	                                   Plugins
@@ -127,14 +133,18 @@ zle -N peco-src
 bindkey 'gd' peco-src
 
 function peco-git-checkout {
-    git branch | peco | xargs git checkout
+    git branch --sort=-committerdate | peco | xargs git checkout
+		zle accept-line
 }
 zle -N peco-git-checkout
 bindkey '^o' peco-git-checkout
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+function peco-git-delete-branch {
+    git branch --sort=-committerdate | peco | xargs git branch -d
+		zle accept-line
+}
+zle -N peco-git-delete-branch
+bindkey 'db' peco-git-delete-branch
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

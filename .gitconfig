@@ -12,13 +12,15 @@
 [ghq]
 	root = /Users/vi/src
 [alias]
-    lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
 	st = status
 	co = checkout
 	br = branch
 	rb = rebase
 	ci = commit
+	ad = "!git ls-files --modified --others --exclude-standard | peco --initial-filter=Fuzzy | xargs git add "
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
+	update = !git pull && git submodule update
 [core]
 	excludesfile = ~/.gitignore
 [difftool "sourcetree"]

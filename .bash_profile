@@ -9,6 +9,8 @@ fi
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
+export DEPLOY_KEY=$(cat ~/.ssh/id_rsa | base64)
+
 # added by Anaconda3 5.1.0 installer
 export PATH="/anaconda3/bin:$PATH"
 
